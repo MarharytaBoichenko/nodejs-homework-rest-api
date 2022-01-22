@@ -13,7 +13,7 @@ const add = async (req, res, next) => {
     const { name, email, phone } = req.body;
     const validationRes = schema.validate(req.body);
     if (validationRes.error) {
-      throw new createError(400, validationRes.error.message);
+      throw createError(400, validationRes.error.message);
     }
     const newContact = await contactsOperation.addContact(name, email, phone);
     res.status(201).json(newContact);

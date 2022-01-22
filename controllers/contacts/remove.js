@@ -6,7 +6,7 @@ const remove = async (req, res, next) => {
     const { contactId } = req.params;
     const contactToRemove = await contactsOperation.removeContact(contactId);
     if (!contactToRemove) {
-      throw new createError(404, `Contact  with id ${contactId} not found`);
+      throw createError(404, `Contact  with id ${contactId} not found`);
     }
     res.json({
       message: "contact deleted",

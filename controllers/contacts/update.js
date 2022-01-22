@@ -12,7 +12,7 @@ const update = async (req, res, next) => {
   try {
     const validationRes = schema.validate(req.body);
     if (validationRes.error) {
-      throw new createError(400, validationRes.error.message);
+      throw createError(400, validationRes.error.message);
     }
     const { contactId } = req.params;
     const { name, email, phone } = req.body;
@@ -23,7 +23,7 @@ const update = async (req, res, next) => {
       phone
     );
     if (!updatedCont) {
-      throw new createError(404, `Contact  with id ${contactId} not found`);
+      throw createError(404, `Contact  with id ${contactId} not found`);
     }
     res.json(updatedCont);
   } catch (error) {
