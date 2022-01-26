@@ -1,6 +1,6 @@
 const app = require("./app");
 const mongoose = require("mongoose");
-///подключение  к БД
+/// подключение  к БД
 const { DB_HOST, PORT = 3000 } = process.env;
 console.log(DB_HOST);
 

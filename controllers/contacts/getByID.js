@@ -11,7 +11,7 @@ const getByID = async (req, res, next) => {
     }
     res.json(contact);
   } catch (error) {
-    ///если передано вместо id  что-то непохожее  на id то  возвращает статус 500
+    /// если передано вместо id  что-то непохожее  на id то  возвращает статус 500
     ///  а нам надо  чтоб  был  404 ,  потому  ставим проверку  и  нужный статус
     if (error.message.includes("Cast to ObjectId failed")) {
       error.status = 404;
