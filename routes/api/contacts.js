@@ -4,12 +4,13 @@ const validation = require("../../middlewares/validation/contactValidation");
 const { contactJoiSchema, favoriteJoiSchema } = require("../../model");
 
 const { contacts: ctrl } = require("../../controllers");
+const auth = require("../../middlewares/authentication/auth");
 
-router.get("/", ctrl.getAll);
+router.get("/", auth, ctrl.getAll);
 
 router.get("/:contactId", ctrl.getByID);
 
-router.post("/", validation(contactJoiSchema), ctrl.add);
+router.post("/", auth, validation(contactJoiSchema), ctrl.add);
 
 router.delete("/:contactId", ctrl.remove);
 
