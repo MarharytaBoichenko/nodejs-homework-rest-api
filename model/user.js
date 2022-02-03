@@ -10,7 +10,7 @@ const userSchema = Schema(
       type: String,
       require: [true, "Email is required"],
       unique: true,
-      ////происать  индекс в базу !!!!
+      /// /происать  индекс в базу !!!!
 
       match: emailRegexp,
     },
@@ -35,7 +35,7 @@ const userSchema = Schema(
 
 const User = model("user", userSchema);
 
-//validation  Joi
+// validation  Joi
 
 const userJoiSchema = Joi.object({
   email: Joi.string().required().pattern(emailRegexp),

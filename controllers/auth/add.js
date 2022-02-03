@@ -12,8 +12,8 @@ const addUser = async (req, res, next) => {
     if (user) {
       throw createError(409, "Email already in use");
     }
-    //если нет добавляем его  в базу
-    //пароль хешируем с солью
+    // если нет добавляем его  в базу
+    // пароль хешируем с солью
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     console.log(hashedPassword);

@@ -13,7 +13,7 @@ const updateSubscription = async (req, res, next) => {
       },
       { new: true, runValidators: true }
     );
-    ////// надо ли эта проверка?
+    /// /// надо ли эта проверка?
     if (!updatedUser) {
       throw createError(404, `User  with id ${_id} not found`);
     }

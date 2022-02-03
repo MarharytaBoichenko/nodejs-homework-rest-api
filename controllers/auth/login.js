@@ -9,7 +9,7 @@ const login = async (req, res, next) => {
   // 3) compare  password  in input with  user password in  DB
   // 4)  if  password OK   -  create token
   //  in  res     =  token,     user
-  //5)  if  !password  -   auth error 401
+  // 5)  if  !password  -   auth error 401
 
   try {
     const { email, password } = req.body;
@@ -26,7 +26,7 @@ const login = async (req, res, next) => {
     };
     const { SECRET_KEY } = process.env;
     const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "1h" });
-    //созданный токен записываем в базу  юзеру
+    // созданный токен записываем в базу  юзеру
     await User.findByIdAndUpdate(
       user._id,
       { token },
