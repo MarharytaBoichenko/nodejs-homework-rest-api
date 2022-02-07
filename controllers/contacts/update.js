@@ -8,7 +8,7 @@ const update = async (req, res, next) => {
       { _id: contactId },
       req.body,
       { new: true, runValidators: true }
-      ////new  true передаем  чтобы  метод  вернул нам обновленный объект(по умолчанию о н возвращает старый)
+      /// /new  true передаем  чтобы  метод  вернул нам обновленный объект(по умолчанию о н возвращает старый)
     );
     if (!updatedCont) {
       throw createError(404, `Contact  with id ${contactId} not found`);
