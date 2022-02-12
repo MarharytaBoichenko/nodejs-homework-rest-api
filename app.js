@@ -1,7 +1,6 @@
 const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
-// const mongoose = require("mongoose");
 require("dotenv").config();
 
 const contactsRouter = require("./routes/api/contacts");
@@ -12,9 +11,14 @@ const app = express();
 
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
+// для логирования
 app.use(logger(formatsLogger));
+// для обработки кросдоменных  запросов
 app.use(cors());
+// для  обработки  текста
 app.use(express.json());
+// для  того чтоб  отдавать статические  файлы
+app.use(express.static("public"));
 
 app.use("/api/contacts", contactsRouter);
 app.use("/api/auth", authRouter);
