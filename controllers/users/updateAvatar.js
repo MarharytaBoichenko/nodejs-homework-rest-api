@@ -16,8 +16,6 @@ const updateAvatar = async (req, res, next) => {
   try {
     const img = await Jimp.read(firstName);
     img.resize(256, 256);
-    // await img.write(firstName);
-
     await img.writeAsync(firstName);
     const { _id } = req.user;
     //     // достаем id  для переименования аватарки
