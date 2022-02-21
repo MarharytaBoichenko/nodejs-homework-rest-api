@@ -14,6 +14,10 @@ const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
+    console.log(user.verify);
+    if (!user.verify) {
+      throw createError(401, "Please, verify your email");
+    }
     if (!user) {
       throw createError(401, "Email or password is wrong");
     }
