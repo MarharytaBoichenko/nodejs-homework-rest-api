@@ -1,6 +1,6 @@
 const createError = require("http-errors");
 const { User } = require("../../model/user");
-const sendMail = require("../../helpers");
+const sendMail = require("../../services");
 const validation = require("../../middlewares/validation/contactValidation");
 
 const verify = async (req, res, next) => {
